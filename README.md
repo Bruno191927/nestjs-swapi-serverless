@@ -1,116 +1,52 @@
-# serverless-nestjs
-This is an example of creating a function that runs as nestjs using the serverless framework. 
-Sample publish. https://mmjdx4zxmc.execute-api.ap-northeast-1.amazonaws.com/dev/
 
-## What is changed.
+### Arquitectura de la aplicacion
+  - Hexagonal
+  
+## Instalaciones y Recomendaciones Necesarias
 
-### add
-- `src/index.ts`
-- `src/swagger.ts`
-- `serverless.yml`
+### Antes de Iniciar
+Antes de comenzar, asegúrate de tener lo siguiente:
+- Node.js versión 16 o superior instalado en tu sistema.
+- NPM (Node Package Manager) instalado en tu sistema.
 
-### change
-- `package.json`
+### Instalaciones del Proyecto
+Para instalar las dependencias del proyecto, sigue estos pasos:
+1. Abre una terminal.
+2. Navega hasta el directorio raíz del proyecto.
+3. Ejecuta el siguiente comando para instalar las bibliotecas necesarias:
+    ```bash
+    npm install
+    ```
+4. Iniciar el Proyecto en Desarrollo
+ - Para ejecutar el proyecto en modo de desarrollo, sigue estos pasos:
+    ```bash
+    npm run dev
+    ```
+## Deploy en aws
+ - Asegurate de tener configurado tu aws settings
+ - Ejecutar cualquiera de los siguientes comandos
+    - para deployar
+    ```bash
+        npm run deploy
+    ```
 
-## How to use
-### Prepare
+## Checklist 
+- [x] Implementación de una API en Node.js utilizando el framework Serverless para su despliegue en AWS.
+- [x] Adaptación y transformación de los modelos de la API de SWAPI a español
+- [x] Diseño y creación de un modelo personalizado a través de endpoints para la insercion y lectura de la base de datos.
+- [x] Uso de un framework (NestJs)
 
-```
-$ npm install @nestjs/cli serverless -g
-$ git clone git@github.com:rdlabo/serverless-nestjs.git 【projectName】
-$ cd 【projectName】
-$ npm install
-$ npm start
-```
+## Puntos
+- [x] Mínimo 2 endpoints
+- [x] Integración con un DynamoDB
+- [x] Integración con SWAPI
+- [x] Traducción de atributos de inglés a español
+- [x] Uso de Serverless Framework
+- [x] Uso de Node.js
+- [x] Respeto de las buenas prácticas de desarrollo
 
-### Development
-#### use NestCLI
-
-```
-$ npm start
-```
-
-```
-$ npm start
-> serverless-nestjs@0.0.0 start /Users/sakakibara/dev/serverless-nestjs
-> nest start
-
-[Nest] 3905   - 11/29/2019, 4:40:49 PM   [NestFactory] Starting Nest application...
-[Nest] 3905   - 11/29/2019, 4:40:49 PM   [InstanceLoader] AppModule dependencies initialized +20ms
-[Nest] 3905   - 11/29/2019, 4:40:49 PM   [RoutesResolver] AppController {/}: +6ms
-[Nest] 3905   - 11/29/2019, 4:40:49 PM   [RouterExplorer] Mapped {/, GET} route +3ms
-[Nest] 3905   - 11/29/2019, 4:40:49 PM   [NestApplication] Nest application successfully started +4ms
-```
-
-Then browse http://localhost:3000
-
-#### use serverless-offline
-__after also doing an: `npm run build`__
-
-```bash
-$ sls offline
-```
-
-```
-$ sls offline
-Serverless: Starting Offline: dev/us-east-1.
-
-Serverless: Routes for index:
-Serverless: ANY /
-Serverless: ANY /{proxy*}
-
-Serverless: Offline listening on http://localhost:3000
-```
-
-Then browse http://localhost:3000
-
-## How to Deploy
-```bash
-$ npm run build && sls deploy
-```
-
-## Options
-### Hot start
-See : https://serverless.com/blog/keep-your-lambdas-warm/
-
-These behavior can be fixed with the plugin serverless-plugin-warmup
-
-1 Install the plugin
-
-```
-$ npm install serverless-plugin-warmup --save-dev
-```
-
-2 Enable the plugin
-
-```
-plugins:
-  - '@hewmen/serverless-plugin-typescript'
-  - serverless-plugin-optimize
-  - serverless-offline
-  - serverless-plugin-warmup
-
-custom:
-  # Enable warmup on all functions (only for production and staging)
-  warmup:      
-      - production
-      - staging
-```
-
-### Use Swagger for development
-
-```
-$ npx ts-node src/swagger.ts
-```
-
-```
-[Nest] 6890   - 2019-03-24 15:11   [NestFactory] Starting Nest application...
-[Nest] 6890   - 2019-03-24 15:11   [InstanceLoader] AppModule dependencies initialized +11ms
-[Nest] 6890   - 2019-03-24 15:11   [RoutesResolver] AppController {/}: +224ms
-[Nest] 6890   - 2019-03-24 15:11   [RouterExplorer] Mapped {/, GET} route +2ms
-[Nest] 6890   - 2019-03-24 15:11   [NestApplication] Nest application successfully started +2ms
-```
-
-Then browse http://localhost:3001/api
-
-**This function is for development.** If you want to use production, change package.json dependencies and serverless.yml.
+## Bonus
+- [x] Pruebas Unitarias
+- [x] Uso de TypeScript
+- [x] Deploy sin errores
+- [x] Trabajar en capas y por dominio
